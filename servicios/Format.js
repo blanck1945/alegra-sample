@@ -9,8 +9,6 @@ class Formatter {
   static formatAlegraData(bills, providers) {
     const records = [];
 
-    console.warn(providers);
-
     bills.forEach((bill) => {
       records.push({
         invoiceNumber: bill.billNumber,

@@ -11,8 +11,6 @@ class AlegraService {
         },
       });
 
-      console.warn(response.data);
-
       return response.data;
     } catch (err) {
       console.warn(err);

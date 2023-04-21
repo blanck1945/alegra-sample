@@ -1,12 +1,7 @@
 const axios = require("axios");
 
 class LambdasServices {
-  //   static lambdas = {
-  //     uploadInvoicesAlegra: this.uploadInvoicesAlegra(),
-  //   };
-
   static async invokeLambda(formattedBills) {
-    //console.warn(this.lambdas[lambda]());
     try {
       return await this.uploadInvoicesAlegra(formattedBills);
     } catch (err) {
@@ -18,7 +13,7 @@ class LambdasServices {
     try {
       await axios({
         method: "post",
-        url: "http://localhost:3000/dev",
+        url: "https://erocq81xb0.execute-api.us-east-2.amazonaws.com/dev/upload-alegra",
         data: formattedBills,
       });
     } catch (err) {
