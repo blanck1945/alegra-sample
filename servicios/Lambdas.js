@@ -17,7 +17,8 @@ class LambdasService {
         data: formattedBills,
       });
     } catch (err) {
-      console.warn("Hubo un error");
+      console.warn(err.data.response);
+      console.warn("There was an error uploading the invoices to Bubble");
     }
   }
 }
