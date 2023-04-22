@@ -6,7 +6,7 @@ class Formatter {
     );
   };
 
-  static formatAlegraData(bills, providers) {
+  static formatAlegraData(bills, providers, companyDoc, companyId) {
     const records = [];
 
     bills.forEach((bill) => {
@@ -24,7 +24,14 @@ class Formatter {
       });
     });
 
-    return records;
+    const bubbleObj = {
+      invoices: records,
+      companyDoc,
+      companyId,
+      accountingService: "Alegra",
+    };
+
+    return bubbleObj;
   }
 }
 

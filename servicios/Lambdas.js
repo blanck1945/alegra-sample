@@ -1,6 +1,6 @@
 const axios = require("axios");
 
-class LambdasServices {
+class LambdasService {
   static async invokeLambda(formattedBills) {
     try {
       return await this.uploadInvoicesAlegra(formattedBills);
@@ -22,4 +22,4 @@ class LambdasServices {
   }
 }
 
-module.exports = LambdasServices;
+module.exports = LambdasService;
