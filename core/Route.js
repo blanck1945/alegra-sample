@@ -1,10 +1,18 @@
-const express = require("express");
+const chalk = require("chalk");
 class Route {
   static async execute(req, res, cb) {
     try {
       await cb(req, res);
     } catch (err) {
-      res.send({ status: "error", message: err });
+      if (err.response) {
+        console.warn(chalk.red(err.response.data.message));
+        return res
+          .status(err.response.data.code)
+          .send({ status: "error", message: err.response.data.message });
+      }
+
+      console.warn(chalk.red(err));
+      return res.status(500).send({ status: "error" });
     }
   }
 }

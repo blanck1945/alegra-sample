@@ -10,16 +10,12 @@ class LambdasService {
   }
 
   static async uploadInvoicesAlegra(formattedBills) {
-    try {
-      await axios({
-        method: "post",
-        url: "https://erocq81xb0.execute-api.us-east-2.amazonaws.com/dev/upload-alegra",
-        data: formattedBills,
-      });
-    } catch (err) {
-      console.warn(err.data.response);
-      console.warn("There was an error uploading the invoices to Bubble");
-    }
+    await axios({
+      method: "post",
+      //url: "http://localhost:3006/dev",
+      url: "https://erocq81xb0.execute-api.us-east-2.amazonaws.com/dev/upload-alegra",
+      data: formattedBills,
+    });
   }
 }
 

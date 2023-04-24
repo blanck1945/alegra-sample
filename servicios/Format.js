@@ -1,9 +1,11 @@
 class Formatter {
-  static randomFixedInteger = function (length) {
-    return Math.floor(
-      Math.pow(10, length - 1) +
-        Math.random() * (Math.pow(10, length) - Math.pow(10, length - 1) - 1)
-    );
+  static randomFixedInteger = function (str, length = 5) {
+    let placeholder = "";
+    for (var i = 0; i < length; i++) {
+      placeholder += str.charCodeAt(i) || "0";
+    }
+
+    return parseInt(placeholder);
   };
 
   static formatAlegraData(bills, providers, companyDoc, companyId) {
@@ -15,7 +17,7 @@ class Formatter {
         total: bill.missingAmount,
         providerDoc: providers[bill.name]
           ? parseInt(providers[bill.name]?.identification)
-          : this.randomFixedInteger(8),
+          : this.randomFixedInteger(bill.name),
         providerName: bill.name,
         providerTypeDoc: "",
         expirationDate: bill.dueDate,
