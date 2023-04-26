@@ -36,7 +36,7 @@ router.get("/", async (req, res) => {
     await LambdasService.uploadInvoicesAlegra(bubbleObj);
 
     console.warn(chalk.green("6/6- Sending success response"));
-    res.send({
+    res.status(200).send({
       status: "ok",
       message: "Facturas y proveedores creados con exito",
       service: "Alegra",
