@@ -2,7 +2,7 @@ const chalk = require("chalk");
 class Route {
   static async execute(req, res, cb) {
     try {
-      await cb(req, res);
+      return await cb(req, res);
     } catch (err) {
       if (err.response) {
         console.warn(chalk.red(err?.response?.data?.message));
