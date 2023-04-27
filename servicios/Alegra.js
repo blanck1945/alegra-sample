@@ -17,9 +17,10 @@ class AlegraService {
   }
 
   static async getBills(token) {
+    const today = new Date().toISOString();
     const response = await axios({
       method: "get",
-      url: "https://app.alegra.com/api/v1/reports/bills-open",
+      url: `https://app.alegra.com/api/v1/reports/bills-open?start=0&limit=200&order_direction=DESC`,
       headers: {
         Authorization: "Basic " + token,
       },
