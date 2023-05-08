@@ -1,5 +1,6 @@
 const chalk = require("chalk");
-class Route {
+
+class CoreController {
   static async execute(req, res, cb) {
     try {
       return await cb(req, res);
@@ -65,4 +66,4 @@ class Route {
   }
 }
 
-module.exports = Route;
+module.exports = CoreController;
