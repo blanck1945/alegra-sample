@@ -11,7 +11,7 @@ class AlegraController extends CoreController {
       `Starting the request with \nUsername: ${username}  \nPassword: ${password} \nCompanyId: ${companyId} \nCompanyDoc: ${companyDoc}`
     );
 
-    this.execute(req, res, async (_, res) => {
+    return await this.execute(req, res, async (_, res) => {
       console.warn(chalk.blue("1/6- Getting Alegra session"));
       const parseToken = await AlegraService.getAlegraToken(username, password);
 

@@ -6,7 +6,7 @@ class CoreController {
       return await cb(req, res);
     } catch (err) {
       if (err.response) {
-        console.warn(chalk.red(err?.response?.data?.message));
+        console.warn(chalk.red(err));
 
         if (err.response.status === 400) {
           return res.status(400).send({
