@@ -1,6 +1,5 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const mockData = require("./mock/mockdata");
 
 // Importing routes
 const alegraRoutes = require("./routes/alegra/AlegraRoutes");
@@ -16,6 +15,6 @@ app.get("/", (req, res) => {
 
 app.use("/alegra", alegraRoutes);
 
-app.listen(3003, () => {
-  console.log("Server is running on port 3003");
+app.listen(process.env.PORT, () => {
+  console.log(`Server is running on port ${process.env.PORT}`);
 });
